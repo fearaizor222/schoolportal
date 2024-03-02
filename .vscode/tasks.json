@@ -1,0 +1,33 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Maven: clean install",
+            "type": "shell",
+            "command": "mvn clean package",
+            "group": {
+                "kind": "build",
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Maven: tomcat7-run",
+            "type": "shell",
+            "command": "mvn tomcat7:run",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": "Maven: clean install",
+            "problemMatcher": []
+        },
+        {
+            "label": "Maven: tomcat7-stop",
+            "type": "shell",
+            "command": "mvn tomcat7:shutdown",
+            "group": {
+                "kind": "test",
+            }
+        }
+    ]
+}
